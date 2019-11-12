@@ -1,0 +1,17 @@
+<h3><%= @task.title %></h3>
+<h2><%= link_to "Edit this task", edit_path %></h2>
+<p><%= @task.details %></p>
+ <% if @task.completed? %>
+  <input type="checkbox" checked>
+  <label for="checkbox"> This task is completed </label>
+  <br>
+  <% else %>
+  <input type="checkbox">
+  <label for="checkbox"> This task is not completed yet </label>
+  <br>
+<% end %>
+<br>
+<%= link_to "Delete", task_path(@task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+<%= link_to "Back", tasks_path %>
